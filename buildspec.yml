@@ -6,6 +6,8 @@ phases:
       - pip install --upgrade pip
       - pip install pylint
       - pylint ./LambdaCode/lambda_function.py > ./pylint-result.txt
+
+      
   post_build:
     commands:
       - aws s3 cp ./pylint-result.txt s3://hashim123bucket123
