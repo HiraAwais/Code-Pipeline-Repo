@@ -5,18 +5,15 @@ phases:
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket hashim123bucket123 --output-template-file outputSamTemplate.yaml
       - pip install --upgrade pip
       - pip install pylint
-      - pylint ./LambdaCode/lambda_function.py 
       
-      
-  # build:
-  #   commands:
-      
-      # > ./pylint-result.txt
+  build:
+    commands:
+      - pylint ./LambdaCode/lambda_function.py > /pylint-result.txt
 
 
-  # post_build:
-  #   commands:
-  #     - aws s3 cp ./pylint-result.txt s3://hashim123bucket123
+  post_build:
+    commands:
+      - aws s3 cp /pylint-result.txt s3://hashim123bucket123
 
 artifacts:
   type: zip
