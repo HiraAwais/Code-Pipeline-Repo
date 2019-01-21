@@ -8,7 +8,7 @@ phases:
       
   build:
     commands:
-      - pylint /LambdaCode/lambda_function.py:exit 0 > /pylint-result.txt
+      - pylint /LambdaCode/lambda_function.py; exit 0 > /pylint-result.txt
 
   post_build:
     commands:
